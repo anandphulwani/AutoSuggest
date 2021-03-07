@@ -843,6 +843,7 @@ var AutoSuggest = function () {
             var self = this;
             var activeSuggestionList = null;
             var handledInKeyDown = false;
+            var previousValue = self.value;
 
             this.onBlurHandler = function () {
                 self.dropdown.hide();
@@ -885,6 +886,11 @@ var AutoSuggest = function () {
                     handledInKeyDown = false;
                     return;
                 }
+
+                if (this.value == previousValue) {
+                    return;
+                }
+                previousValue = this.value;
 
                 var value = void 0;
                 if (data(this, 'isInput')) {
