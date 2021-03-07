@@ -470,7 +470,7 @@ var SuggestionDropdown = function () {
         key: 'showLoader',
         value: function showLoader(position) {
             this.empty();
-            this.dropdownContent.innerHTML = '<div class="loadingio-spinner-ellipsis-310hp0rq6j8" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><div class="ldio-l4tfk0smiup"><div></div><div></div><div></div><div></div><div></div></div></div>';
+            this.dropdownContent.innerHTML = '<div class="loadingio-spinner-ellipsis-autosuggest" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><div class="ldio-autosuggest"><div></div><div></div><div></div><div></div><div></div></div></div>';
             this.show(position);
             this.isActive = false;
         }
