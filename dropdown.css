@@ -80,58 +80,58 @@
     margin-bottom: 2px;
 }
 
-@keyframes ldio-l4tfk0smiup {
+@keyframes ldio-autosuggest {
    0% { transform: translate(6px,5px) scale(0); }
   25% { transform: translate(6px,5px) scale(0); }
   50% { transform: translate(6px,5px) scale(1); }
   75% { transform: translate(40px,5px) scale(1); }
  100% { transform: translate(74px,5px) scale(1); }
 }
-@keyframes ldio-l4tfk0smiup-r {
+@keyframes ldio-autosuggest-r {
    0% { transform: translate(74px,5px) scale(1): }
  100% { transform: translate(74px,5px) scale(0); }
 }
-@keyframes ldio-l4tfk0smiup-c {
+@keyframes ldio-autosuggest-c {
    0% { background: #2f2583 }
   25% { background: #e5097f }
   50% { background: #f38d00 }
   75% { background: #6d6e71 }
  100% { background: #2f2583 }
 }
-.ldio-l4tfk0smiup div {
+.ldio-autosuggest div {
   position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   transform: translate(40px,5px) scale(1);
   background: #2f2583;
-  animation: ldio-l4tfk0smiup 1.25s infinite cubic-bezier(0,0.5,0.5,1);
+  animation: ldio-autosuggest 1.25s infinite cubic-bezier(0,0.5,0.5,1);
 }
-.ldio-l4tfk0smiup div:nth-child(1) {
+.ldio-autosuggest div:nth-child(1) {
   background: #6d6e71;
   transform: translate(74px,5px) scale(1);
-  animation: ldio-l4tfk0smiup-r 0.3125s infinite cubic-bezier(0,0.5,0.5,1), ldio-l4tfk0smiup-c 1.25s infinite step-start;
-}.ldio-l4tfk0smiup div:nth-child(2) {
+  animation: ldio-autosuggest-r 0.3125s infinite cubic-bezier(0,0.5,0.5,1), ldio-autosuggest-c 1.25s infinite step-start;
+}.ldio-autosuggest div:nth-child(2) {
   animation-delay: -0.3125s;
   background: #2f2583;
-}.ldio-l4tfk0smiup div:nth-child(3) {
+}.ldio-autosuggest div:nth-child(3) {
   animation-delay: -0.625s;
   background: #6d6e71;
-}.ldio-l4tfk0smiup div:nth-child(4) {
+}.ldio-autosuggest div:nth-child(4) {
   animation-delay: -0.9375s;
   background: #f38d00;
-}.ldio-l4tfk0smiup div:nth-child(5) {
+}.ldio-autosuggest div:nth-child(5) {
   animation-delay: -1.25s;
   background: #e5097f;
 }
-.loadingio-spinner-ellipsis-310hp0rq6j8 {
+.loadingio-spinner-ellipsis-autosuggest {
   width: 100px;
   height: 30px;
   display: inline-block;
   overflow: hidden;
   background: none;
 }
-.ldio-l4tfk0smiup {
+.ldio-autosuggest {
   width: 100%;
   height: 100%;
   position: relative;
@@ -139,7 +139,7 @@
   backface-visibility: hidden;
   transform-origin: 0 0; /* see note above */
 }
-.ldio-l4tfk0smiup div { box-sizing: content-box; }
+.ldio-autosuggest div { box-sizing: content-box; }
 
 .autosuggest-loader {
     color: #333;
