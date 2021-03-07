@@ -354,11 +354,6 @@ class AutoSuggest {
                 let value;
                 if (data(this, 'isInput')) {
                     const [startPosition, endPosition] = getCursorPosition(this);
-                    //console.log("_getCursorPosition5:"+_getCursorPosition5+"    _getCursorPosition6:"+_getCursorPosition6+"    startPosition:"+startPosition+"    endPosition:"+endPosition)
-                    /*alert(_getCursorPosition5)
-                    alert(_getCursorPosition6)
-                    alert(startPosition)
-                    alert(endPosition)*/
                     if (/\w/.test(this.value.charAt(endPosition) || ' ')) {
                         self.dropdown.hide();
                         return;
