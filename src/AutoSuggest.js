@@ -193,7 +193,11 @@ const setValue = ({ element, trigger, suggestion, onChange }) => {
 
         let value = originalValue.slice(0, startPosition);
         const currentValue = value.split(trigger || /\W/).pop();
-        value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + (suggestion.insertText || suggestion.insertHtml);
+        if (trigger) {
+            value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + trigger + (suggestion.insertText || suggestion.insertHtml);
+        } else {
+            value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + (suggestion.insertText || suggestion.insertHtml);
+        }
         element.value = value + originalValue.slice(endPosition);
         element.focus();
 
@@ -350,6 +354,11 @@ class AutoSuggest {
                 let value;
                 if (data(this, 'isInput')) {
                     const [startPosition, endPosition] = getCursorPosition(this);
+                    //console.log("_getCursorPosition5:"+_getCursorPosition5+"    _getCursorPosition6:"+_getCursorPosition6+"    startPosition:"+startPosition+"    endPosition:"+endPosition)
+                    /*alert(_getCursorPosition5)
+                    alert(_getCursorPosition6)
+                    alert(startPosition)
+                    alert(endPosition)*/
                     if (/\w/.test(this.value.charAt(endPosition) || ' ')) {
                         self.dropdown.hide();
                         return;
@@ -435,7 +444,7 @@ class AutoSuggest {
 
         inputs.forEach(input => {
             // validate element
-            if (input.tagName === 'TEXTAREA' || (input.tagName === 'INPUT' && input.type === 'text')) {
+            if (input.tagName === 'TEXTAREA' || (input.tagName === 'INPUT' && input.type === 'text') || (input.tagName === 'INPUT' && input.type === 'email')) {
                 data(input, 'isInput', true)
             } else if (input.isContentEditable) {
                 data(input, 'isInput', false)
