@@ -310,6 +310,7 @@ class AutoSuggest {
             const self = this;
             let activeSuggestionList = null;
             let handledInKeyDown = false;
+            let previousValue = self.value;
 
             this.onBlurHandler = function() {
                 self.dropdown.hide();
@@ -350,6 +351,11 @@ class AutoSuggest {
                     handledInKeyDown = false;
                     return;
                 }
+
+                if (this.value == previousValue) {
+                    return;
+                }
+                previousValue = this.value;
 
                 let value;
                 if (data(this, 'isInput')) {
