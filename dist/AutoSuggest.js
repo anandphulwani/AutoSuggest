@@ -360,7 +360,7 @@ function SuggestionList(options) {
     this.trigger = options.trigger;
     if (this.trigger) {
         var escapedTrigger = escapeRegExp(this.trigger);
-        this.regex = new RegExp('(?:\\W+|^)' + escapedTrigger + '(\\S*)$');
+        this.regex = new RegExp('(?:.*|^)' + escapedTrigger + '(\\S*)$');
     } else {
         this.regex = new RegExp('(?:^|\\s+)(\\S+)$');
     }
@@ -470,7 +470,7 @@ var SuggestionDropdown = function () {
         key: 'showLoader',
         value: function showLoader(position) {
             this.empty();
-            this.dropdownContent.innerHTML = '<div class="autosuggest-loader">Loading...</div>';
+            this.dropdownContent.innerHTML = '<div class="loadingio-spinner-ellipsis-310hp0rq6j8" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><div class="ldio-l4tfk0smiup"><div></div><div></div><div></div><div></div><div></div></div></div>';
             this.show(position);
             this.isActive = false;
         }
@@ -720,7 +720,11 @@ var setValue = function setValue(_ref) {
 
         var value = originalValue.slice(0, startPosition);
         var currentValue = value.split(trigger || /\W/).pop();
-        value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + (suggestion.insertText || suggestion.insertHtml);
+        if (trigger) {
+            value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + trigger + (suggestion.insertText || suggestion.insertHtml);
+        } else {
+            value = value.slice(0, 0 - currentValue.length - (trigger || '').length) + (suggestion.insertText || suggestion.insertHtml);
+        }
         element.value = value + originalValue.slice(endPosition);
         element.focus();
 
@@ -992,7 +996,7 @@ var AutoSuggest = function () {
 
             inputs.forEach(function (input) {
                 // validate element
-                if (input.tagName === 'TEXTAREA' || input.tagName === 'INPUT' && input.type === 'text') {
+                if (input.tagName === 'TEXTAREA' || input.tagName === 'INPUT' && input.type === 'text' || input.tagName === 'INPUT' && input.type === 'email') {
                     data(input, 'isInput', true);
                 } else if (input.isContentEditable) {
                     data(input, 'isInput', false);
